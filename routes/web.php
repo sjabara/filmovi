@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'web'], function () {
+
+    // Home
+	Route::get('/', function () { return view('welcome'); });
+
+	Route::get('/index', 'FilmController@index');
+
+	
 });
